@@ -18,53 +18,13 @@ import boto3
 from os.path import join as pj
 import os
 import pickle as pkl
+from src.features.custom_transformers import (
+    FeatureExtractorText,
+    FeatureExtractorOHE,
+    FeatureExtractorNumber,
+    CustomImputer
+)
 
-
-class FeatureExtractorText(BaseEstimator, TransformerMixin):
-    def __init__(self, columns):
-        self.columns = columns
-
-    def fit(self, X, *args):
-        return self
-
-    def transform(self, X, *args):
-        X = X[self.columns].values
-        return X
-
-    
-class FeatureExtractorOHE(BaseEstimator, TransformerMixin):
-    def __init__(self, columns):
-        self.columns = columns
-
-    def fit(self, X, *args):
-        return self
-
-    def transform(self, X, *args):
-        X = X[self.columns].values.reshape(-1, 1)
-        return X
-              
-              
-class FeatureExtractorNumber(BaseEstimator, TransformerMixin):
-    def __init__(self, columns):
-        self.columns = columns
-
-    def fit(self, X, *args):
-        return self
-
-    def transform(self, X, *args):
-        X = X[self.columns].values.reshape(-1,1)
-        return X
-
-    
-class CustomImputer(BaseEstimator, TransformerMixin):
-    def fit(self, X, *args):
-        return self
-
-    def transform(self, X, *args):
-        X = SimpleImputer(missing_values=np.NaN,
-                          strategy='constant',
-                          fill_value=0).fit_transform(X)
-        return X
 
 
 @click.command()
