@@ -23,7 +23,12 @@ from dotenv import find_dotenv, load_dotenv
 import click
 import sys
 sys.path.append('../..')
-from src.features.build_features import FeatureExtractorText, FeatureExtractorOHE, FeatureExtractorNumber, CustomImputer
+from src.features.custom_transformers import (
+    FeatureExtractorText,
+    FeatureExtractorOHE,
+    FeatureExtractorNumber,
+    CustomImputer
+)
 
 
 @click.command()
@@ -134,7 +139,7 @@ def main(estimator, test_size, custom_stopwords, use_s3):
         s3 = boto3.resource('s3')
         bucket = s3.Bucket(os.environ.get('BUCKET'))
         with tempfile.TemporaryFile() as fp:
-            key = pj('capstone-data', filename)
+            key = pj(bucket, filename)
             joblib.dump(searchcv, fp)
             fp.seek(0)
             bucket.put_object(Key=key, Body=fp.read())
