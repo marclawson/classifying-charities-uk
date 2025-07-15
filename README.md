@@ -3,9 +3,9 @@ Classifying Charities in the UK
 
 A project to predict International Classification of Non-Profit Organisations (ICNPO) classifications from charity attributes.
 
-This project was an attempt to predict classifications of charities in terms of ICNPOs generated through several methods by the research team at the National Council for Voluntary Organisations (NCVO).  However, it was designed to be a proof-of-concept as to the capacity of machine learning to help categorise the voluntary sector in the UK.  As such the classifications have not been manually checked beforehand and were originally a mixture of keyword searches on the name of the charity and its charitable objects and application of Naive Bayesian techniques.
+This project was an attempt to predict classifications of charities in terms of ICNPOs generated through several methods by the research team at the National Council for Voluntary Organisations (NCVO).
 
-The code is ready to use but the data is not available for this project fir GitHub.  Please contact me via GitHub if you would like to know more about the data used.  There is an exploratory notebook with the last executed code blocks ready to view and this is partly to replace the 'predict_model.py' functionality, so this file is empty.
+The code is ready to use but the data is not available for this project in GitHub.  Please contact me via GitHub if you would like to know more about the data used.  There is an exploratory notebook with the last executed code blocks ready to view and this is partly to replace the 'predict_model.py' functionality, so this file is empty.
 
 Project Organization
 ------------
